@@ -3,79 +3,87 @@
 }
 
 <div class="text-center index-box">
-    <h1 class="display-4">Welcome to Basic Calculator</h1>
-    <div class="calculator">
-      <h5>Calculator</h5>
-      <input type="text" id="mini-display" disabled value="" />
-      <input type="text" id="display" disabled value="0" />
+  <h1 class="display-4">Welcome to Basic Calculator</h1>
+  <div class="calculator">
+    <h5>Calculator</h5>
+    <input type="text" id="mini-display" disabled value="" />
+    <input type="text" id="display" disabled value="0" />
 
-      <div class="numpad">
-        <div>
-          <button onclick="cancel()">DEL</button>
-          <button onclick="operatorPad('(')">(</button>
-          <button onclick="operatorPad(')')">)</button>
-          <button onclick="operatorPad('÷')">÷</button>
-        </div>
+    <div class="numpad">
+      <div>
+        <button onclick="cancel()">DEL</button>
+        <button onclick="operatorPad('(')">(</button>
+        <button onclick="operatorPad(')')">)</button>
+        <button onclick="operatorPad('÷')">÷</button>
+      </div>
 
-        <div>
-          <button onclick="numpad('7')">7</button>
-          <button onclick="numpad('8')">8</button>
-          <button onclick="numpad('9')">9</button>
-          <button onclick="operatorPad('x')">x</button>
-        </div>
+      <div>
+        <button onclick="numpad('7')">7</button>
+        <button onclick="numpad('8')">8</button>
+        <button onclick="numpad('9')">9</button>
+        <button onclick="operatorPad('x')">x</button>
+      </div>
 
-        <div>
-          <button onclick="numpad('4')">4</button>
-          <button onclick="numpad('5')">5</button>
-          <button onclick="numpad('6')">6</button>
-          <button onclick="operatorPad('-')">-</button>
-        </div>
+      <div>
+        <button onclick="numpad('4')">4</button>
+        <button onclick="numpad('5')">5</button>
+        <button onclick="numpad('6')">6</button>
+        <button onclick="operatorPad('-')">-</button>
+      </div>
 
-        <div>
-          <button onclick="numpad('1')">1</button>
-          <button onclick="numpad('2')">2</button>
-          <button onclick="numpad('3')">3</button>
-          <button onclick="operatorPad('+')">+</button>
-        </div>
+      <div>
+        <button onclick="numpad('1')">1</button>
+        <button onclick="numpad('2')">2</button>
+        <button onclick="numpad('3')">3</button>
+        <button onclick="operatorPad('+')">+</button>
+      </div>
 
-        <div>
-          <button onclick="numpad('0')">0</button>
-          <button onclick="allClear()">AC</button>
-          <button onclick="numpad('.')">.</button>
-          <button onclick="calculate()" style="background-color: #c0362c;">=</button>
-        </div>
+      <div>
+        <button onclick="numpad('0')">0</button>
+        <button onclick="allClear()">AC</button>
+        <button onclick="numpad('.')">.</button>
+        <button onclick="calculate()" style="background-color: #c0362c;">=</button>
       </div>
     </div>
+  </div>
 </div>
 
 <script>
+  var xmlhttp = new XMLHttpRequest();
+  var miniDisplay = document.getElementById("mini-display");
+  var display = document.getElementById("display");
+
   function numpad(number) {
-    var miniDisplay = document.getElementById("mini-display");
     miniDisplay.value = miniDisplay.value + number;
   }
 
   function operatorPad(operator) {
-    var miniDisplay = document.getElementById("mini-display");
+
     miniDisplay.value = miniDisplay.value + operator;
   }
 
   function allClear() {
-    document.getElementById('mini-display').value = '';
-    document.getElementById('display').value = '0';
+    miniDisplay.value = '';
+    display.value = '0';
   }
 
   function cancel() {
-    var miniDisplay = document.getElementById("mini-display");
     var temp = miniDisplay.value;
     miniDisplay.value = temp.slice(0, -1);
   }
 
-  function minus() {
-    var miniDisplay = document.getElementById("mini-display");
-    miniDisplay.value = miniDisplay.value;
-  }
-
   function calculate() {
-    alert("calculate")
+    let text = miniDisplay.value
+    text = text.replace(/\+/g, "%2B"); //replace + with %2B
+    text = text.replace('÷', "/");
+    text = text.replace('x', '*')
+
+    xmlhttp.open("GET", "https://localhost:5001/Home/Calculate?prop=" + text);
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        display.value = xmlhttp.responseText;
+      }
+    }
+    xmlhttp.send();
   }
 </script>
