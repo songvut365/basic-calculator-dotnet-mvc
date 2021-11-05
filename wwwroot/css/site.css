@@ -1,0 +1,138 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+/* calculator */
+.index-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem;
+}
+
+.calculator {
+  border: 1px solid #202020;
+  padding: 1rem;
+  background-color: #202020;
+  width: 30%;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.calculator h5 {
+  color: white;
+}
+
+#mini-display {
+  width: 90%;
+  height: 2rem;
+  border-radius: 0;
+  border: 1px solid #202020;
+  font-size: 1rem;
+  text-align: right;
+}
+
+#display {
+  padding-top: 0;
+  width: 90%;
+  height: 5rem;
+  border-radius: 0;
+  border: 1px solid #202020;
+  margin-bottom: 1rem;
+  font-size: 4rem;
+  text-align: right;
+}
+
+
+input:disabled {
+  background-color: white;
+}
+
+.numpad button {
+  background-color: #ffc300;
+  border: 0px solid #202020;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+
+.numpad button:active {
+  background-color: #ddad00;
+}
+
+.numpad button:hover {
+  background-color: #ffd60a;
+}
