@@ -10,39 +10,35 @@
     <input type="text" id="display" disabled value="0" />
 
     <div class="numpad">
-      <div>
-        <button onclick="cancel()">DEL</button>
-        <button onclick="operatorPad('(')">(</button>
-        <button onclick="operatorPad(')')">)</button>
-        <button onclick="operatorPad('÷')">÷</button>
-      </div>
-
-      <div>
+      <div id="col1">
         <button onclick="numpad('7')">7</button>
         <button onclick="numpad('8')">8</button>
         <button onclick="numpad('9')">9</button>
-        <button onclick="operatorPad('x')">x</button>
+        <button onclick="operatorPad('÷')">÷</button>
+        <button onclick="cancel()">DEL</button>
+
       </div>
 
-      <div>
+      <div id="col2">
         <button onclick="numpad('4')">4</button>
         <button onclick="numpad('5')">5</button>
         <button onclick="numpad('6')">6</button>
         <button onclick="operatorPad('-')">-</button>
+        <button onclick="allClear()">AC</button>
       </div>
 
-      <div>
+      <div id="col3">
         <button onclick="numpad('1')">1</button>
         <button onclick="numpad('2')">2</button>
         <button onclick="numpad('3')">3</button>
         <button onclick="operatorPad('+')">+</button>
+        <button onclick="calculate()" id="calculate-btn" style="background-color: #c0362c;">=</button>
       </div>
 
-      <div>
-        <button onclick="numpad('0')">0</button>
-        <button onclick="allClear()">AC</button>
+      <div id="col4">
+        <button onclick="numpad('0')" id="zero-btn">0</button>
         <button onclick="numpad('.')">.</button>
-        <button onclick="calculate()" style="background-color: #c0362c;">=</button>
+        <button onclick="operatorPad('x')">x</button>
       </div>
     </div>
   </div>
@@ -58,7 +54,6 @@
   }
 
   function operatorPad(operator) {
-
     miniDisplay.value = miniDisplay.value + operator;
   }
 
@@ -73,6 +68,7 @@
   }
 
   function calculate() {
+    display.value = "Calculating . . ."
     let text = miniDisplay.value
     text = text.replace(/\+/g, "%2B"); //replace + with %2B
     text = text.replace('÷', "/");

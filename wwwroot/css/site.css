@@ -84,7 +84,7 @@ body {
   border: 1px solid #202020;
   padding: 1rem;
   background-color: #202020;
-  width: 20rem;
+  width: 400px;
   border-radius: 1rem;
   margin-top: 3rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -114,6 +114,15 @@ body {
   text-align: right;
 }
 
+.numpad {
+  padding: 1rem;
+  text-align: left;
+}
+
+#col1, #col2, #col3, #col4 {
+  margin: 0;
+  padding: 0;
+}
 
 input:disabled {
   background-color: white;
@@ -125,8 +134,8 @@ input:disabled {
   width: 3rem;
   height: 3rem;
   border-radius: 3rem;
-  margin: 0.5rem;
   font-weight: bold;
+  margin: .4rem;
 }
 
 .numpad button:active {
@@ -135,4 +144,15 @@ input:disabled {
 
 .numpad button:hover {
   background-color: #ffd60a;
+}
+
+#calculate-btn {
+  position: absolute;
+  height: 7rem;
+  margin-left: 0.8rem;
+}
+
+
+#zero-btn {
+  width: 7rem;
 }
